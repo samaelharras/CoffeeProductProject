@@ -7,6 +7,7 @@ import com.ntg.product.repository.CoffeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -16,8 +17,11 @@ public class CoffeeService {
 	private CoffeeRepository coffeeRepository;
 	
 		public List<Coffee> getAllCoffee() {
-			return  (List<Coffee>) coffeeRepository.findAll();
-			
+				Iterable<Coffee> productList = coffeeRepository.findAll();
+				if(productList != null) {
+					return (List<Coffee>) productList;
+				}
+			return null;
 		}
 
 	public Coffee  createNewCoffee(Coffee newCof) {

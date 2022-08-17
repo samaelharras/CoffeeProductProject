@@ -2,6 +2,7 @@ package com.ntg.product.controller;
 
 import com.ntg.product.entity.Coffee;
 import com.ntg.product.service.CoffeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,7 +11,8 @@ import java.util.List;
 @RequestMapping("/cof/v1")
 public class CoffeeController {
 
-	private CoffeeService coffeeService =new CoffeeService();
+	@Autowired
+	private CoffeeService coffeeService;
 	@GetMapping(value="/all")
 	public List<Coffee> getAllCoffee(){
 		
