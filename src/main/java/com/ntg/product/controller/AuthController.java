@@ -56,7 +56,7 @@ public class AuthController {
 			//	.collect(Collectors.toList());
 		return ResponseEntity.ok(new LoginResponse(userDetails.getUserName(), userDetails.getUsername(), jwt));
 	}
-//test
+//testt
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@RequestBody SignupRequest signUpRequest) {
 		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
